@@ -5,11 +5,9 @@ DEBUT
     rh = 230
 
     assertion1 = (((365 * 3) / (24 - (16 - 8))) * (rh) > r) == (e * s < r)
+    assertion1pt1 = (((365 * 3) / (24 - (16 - 8))) * (rh) > r) #true
+    assertion1pt2 = (e * s < r) #false
 
-    (15740 > r) == (e * s < r)
-    true == (e * s < r)
-    true == 10 * 1250 < 12000
-    true == 12500 < 12000
-    true == false
-    RESULTAT : false
+    print(assertion1)
+    
 FIN
