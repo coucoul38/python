@@ -13,8 +13,13 @@ def divide(x,y):
 def modulo(x,y):
     return(x%y)
 
-def calcSalaireSecParAn(salaireH, heureParJourOuvrable, JOparAn):
-    return((salaireH*heureParJourOuvrable)*5/7)
 
-def calcNet(salaireBrut):
-    return(salaireNet)
+def calcSalaireSecParAn(salaireH, heureParJourOuvrable, JOparAn):
+    return((salaireH*heureParJourOuvrable*JOparAn)/86400)       #86400 secondes en 1 jour
+
+
+def calcNet(salaireBrut, fonctionPublique):
+    if fonctionPublique == True :
+        return(salaireBrut-(0.15*salaireBrut))
+    else :
+        return(salaireBrut-(0.23*salaireBrut))
