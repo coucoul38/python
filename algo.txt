@@ -1,0 +1,15 @@
+DEBUT
+    r = 12000
+    s = 1250
+    e = 10
+    rh = 230
+
+    assertion1 = (((365 * 3) / (24 - (16 - 8))) * (rh) > r) == (e * s < r)
+
+    (15740 > r) == (e * s < r)
+    true == (e * s < r)
+    true == 10 * 1250 < 12000
+    true == 12500 < 12000
+    true == false
+    RESULTAT : false
+FIN
