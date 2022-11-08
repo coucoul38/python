@@ -29,3 +29,30 @@ def calcNet(salaireBrut, fonctionPublique):
     # Si pas dans la fonction publique, alors taxes privé
     else :
         return(salaireBrut-(0.23*salaireBrut))  # 23% de taxes pour le reste
+
+
+
+import random
+import string
+
+#la lettre à trouver (minuscule)
+char = 'o' 
+
+def input():
+        #renvoie une lettre minuscule de type string au hasard
+        letter=(random.choice(string.ascii_lowercase)) 
+        print(letter)
+        if letter == char :
+            return("C'est la bonne lettre !")
+    
+#CORRECTION
+def miniGame(winCondition):
+    #création variable char
+    char = input()
+    tries = 1
+    while(char!= winCondition):
+        char = input()
+        tries = tries + 1
+    print(tries)
+    
+    
