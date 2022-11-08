@@ -14,8 +14,8 @@ def modulo(x,y):
     return(x%y)
 
 
-def calcSalaireSecParAn(salaireH, heureParJourOuvrable, JOparAn):
-    return((salaireH*heureParJourOuvrable*JOparAn)/86400)       #86400 secondes en 1 jour
+def calcSalaireSec(salaireH, heureJourOuvrable, JOparAn):
+    return((salaireH*heureJourOuvrable*JOparAn)/31536000)       #86400 secondes en 1 an
     
 
 def calcNet(salaireBrut, fonctionPublique):
