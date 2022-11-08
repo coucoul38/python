@@ -107,18 +107,30 @@ def find(table, number):
                 before = concat(before,i)
     return before
 
-
 print(find(amog, 2))
 
 #Exercice 3
 # faire une fonction Afficher un message
-#tel que
+# tel que
+
+def afficher(msg):
+    print(msg)
+
+
+#Exercice 4
+#Fonction login(username, password, listUser) pour afficher un message de connexion si le combo est bon
 listeUtilisateur = {
     "Alexandre" :"motdepasse",
     "Michel" : "amogus",
     "Toto" : "1234"
 }
 
+def login(user,password, list):
+    #si le mdp donné est égal au mdp qui correspond à la clé User dans la liste List, alors bon login
+    if(password==list[user]):
+        print("Yay")
+    #sinon, l'utilisateur s'est trompé sur le mdp ou l'Username
+    else :
+        print("Mauvais mdp ou login")
 
-#Exercice 4
-#Fonction login(usernam, password, listUser) pour afficher un message de connexion si le combo est bon
+login("Toto", "1234",listeUtilisateur)
