@@ -15,13 +15,13 @@ def modulo(x,y):
 
 
 def calcSalaireSec(salaireH, heureJourOuvrable, JOparAn):
-    salaireAnnuel = (salaireH*heureJourOuvrable*JOparAn)       #Salaire annuel/secondes en 1 an
+    salaireAnnuel = (salaireH*heureJourOuvrable*JOparAn)       
     nbSecondesParAn = (365 * 24 * 60 * 60)
     return(salaireAnnuel / nbSecondesParAn)
     
 
 def calcNet(salaireBrut, fonctionPublique):
-    if fonctionPublique == True :
-        return(salaireBrut-(0.15*salaireBrut))
+    if fonctionPublique :
+        return(salaireBrut-(0.15*salaireBrut)) # 15% de taxes pour le public
     else :
-        return(salaireBrut-(0.23*salaireBrut))
+        return(salaireBrut-(0.23*salaireBrut))  # 23% de taxes pour le reste
