@@ -75,8 +75,8 @@ tableauDim2 = [0,1,21,3]
 tableauMultiDim = [tableauDim, tableauDim2]
 tableauMultiDim[1][2] #renvoie 21
 
-tableauCleVal = {"Clé" : "Valeur", "Clé2", "Valeur2"}
-tableauCleVal["Clé"] #renvoie Valeur
+tableauCleVal = {"clé" : "valeur", "clé2", "valeur2"}
+tableauCleVal["clé"] #renvoie valeur
 
 #Exercice 3
 # faire une fonction Afficher un message
