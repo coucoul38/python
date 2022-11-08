@@ -10,7 +10,7 @@ def multiply(x, y):
 def divide(x,y):
     # empecher la division par 0
     if(y == 0):
-        return('Y ne peux pas être égal à 0')
+        return("Y ne peux pas être égal à 0")
     return(x/y)  # éxécuté seulement si y n'est pas 0
 
 def modulo(x,y):
