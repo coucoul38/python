@@ -56,3 +56,24 @@ def miniGame(winCondition):
     print(tries)
     
     
+tableau = [0, 10, 15, 5, 14, 7, 102]
+#pour récupérer 15 dans le tableau je prends l'index 2 - 1 (penser à l'index 0)
+print(tableau[2])
+len(tableau) #nombre éléments du tableau
+
+prenom = "Alexandre"
+nom = "Delaistre"
+
+nomPrenom = nom + prenom #renvoie DelaistreAlexandre
+nomPrenom2 = nom + " " + prenom #renvoie Delaistre Alexandre
+intValue = 342
+strIntValue = str(342) #renvoie 342 sous forme de string
+
+# Exercice 1:
+# Fonciton qui concaténe 2 chaines de caractéres en les séparant avec une virgule
+
+#Exercice 2 : 
+#Faire une fonction qui itére sur tous les indexs du tableau renvoyant une chaine de charactères
+#avec l'ensemble des occurations d'un chiffre :
+# POur tableau [0,1,1,1,0,1,1,0,1]
+# la fonction (tableau, 0) doit renvoyer "0, 4, 7" n'hésitez pas a implementer la 1ere fonction
