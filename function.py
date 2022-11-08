@@ -15,7 +15,9 @@ def modulo(x,y):
 
 
 def calcSalaireSec(salaireH, heureJourOuvrable, JOparAn):
-    return((salaireH*heureJourOuvrable*JOparAn)/31536000)       #86400 secondes en 1 an
+    salaireAnnuel = (salaireH*heureJourOuvrable*JOparAn)       #Salaire annuel/secondes en 1 an
+    nbSecondesParAn = (365 * 24 * 60 * 60)
+    return(salaireAnnuel / nbSecondesParAn)
     
 
 def calcNet(salaireBrut, fonctionPublique):
