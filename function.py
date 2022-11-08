@@ -69,6 +69,24 @@ nomPrenom2 = nom + " " + prenom #renvoie Delaistre Alexandre
 intValue = 342
 strIntValue = str(342) #renvoie 342 sous forme de string
 
+tableauMultiType = ["Alexandre", true, tableau, 4 > 2, None]
+tableauDim = [0,1,2,3]
+tableauDim2 = [0,1,21,3]
+tableauMultiDim = [tableauDim, tableauDim2]
+tableauMultiDim[1][2] #renvoie 21
+
+tableauCleVal = {"Clé" : "Valeur", "Clé2", "Valeur2"}
+tableauCleVal["Clé"] #renvoie Valeur
+
+#Exercice 3
+# faire une fonction Afficher un message
+#tel que
+listeUtilisateur = {
+    "Alexandre" :"motdepasse"
+    "Michel" : "amogus"
+    "Toto" : "1234"
+}
+
 # Exercice 1:
 # Fonciton qui concaténe 2 chaines de caractéres en les séparant avec une virgule
 
@@ -77,3 +95,6 @@ strIntValue = str(342) #renvoie 342 sous forme de string
 #avec l'ensemble des occurations d'un chiffre :
 # POur tableau [0,1,1,1,0,1,1,0,1]
 # la fonction (tableau, 0) doit renvoyer "0, 4, 7" n'hésitez pas a implementer la 1ere fonction
+
+#Exercice 4
+#Fonction login(usernam, password, listUser) pour afficher un message de connexion si le combo est bon
