@@ -38,3 +38,5 @@
 
         #manche = manche + 1
         #donner le score total
+    
+    #après toutes les manches, donner le gagnant
