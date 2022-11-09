@@ -103,7 +103,7 @@ def find(table, number):
         # si l'élément i de la table table est le nombre que l'on cherche :
         if(table[i]==number):
             #pour eviter de concaténer avec une chaine de chara vide
-            if(before == ""):
+            if(before == ""): #ou alors si i==1 
                 before=i
             else :
                 # on concaténe l'index du nombre voulu dans before
@@ -136,3 +136,18 @@ def login(user,password, list):
         print("Mauvais mdp ou login")
 
 login("Toto", "1234",listeUtilisateur)
+
+#correction ex 2
+def find(table, number):
+    # initialisation de la variable qui sera retournée
+    i=0
+    #def
+    chaineResultat = ""
+    while i<len(tableau):
+        if tableau[i]==x:
+            firstTurn = True
+            if firstTurn: 
+                chaineResultat = str(i)
+                firstTurn=False
+            chaineResultat = concat(chaineResultat, str(i))
+        i=i+1
