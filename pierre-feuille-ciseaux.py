@@ -1,6 +1,6 @@
 #v0.3.2
 #on admet une fonction random() qui permet de choisir une option aléatoirement
-#on admet une fonction input(key) qui permet de récupérer l'entrée d'un joueur
+#on admet une fonction input() qui permet de récupérer l'entrée d'un joueur
 
 #le joueur entre le nombre de manches
 
