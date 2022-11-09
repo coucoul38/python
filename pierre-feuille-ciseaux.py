@@ -38,4 +38,3 @@
 
         #manche = manche + 1
         #donner le score total
-
