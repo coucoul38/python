@@ -93,8 +93,6 @@ def concat(para1, para2):
 #avec l'ensemble des occurations d'un chiffre :
 # POur tableau [0,1,1,1,0,1,1,0,1]
 # la fonction (tableau, 0) doit renvoyer "0, 4, 7" n'hésitez pas a implementer la 1ere fonction
-
-
 amog = [1,2,1,2,2,2,1,4,2,4,4,2,1]
 
 def find(table, number):
@@ -112,7 +110,6 @@ print(find(amog, 2))
 #Exercice 3
 # faire une fonction Afficher un message
 # tel que
-
 def afficher(msg):
     print(msg)
 
