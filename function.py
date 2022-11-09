@@ -96,12 +96,17 @@ def concat(para1, para2):
 amog = [1,2,1,2,2,2,1,4,2,4,4,2,1]
 
 def find(table, number):
+    # initialisation de la variable qui sera retournée
     before = ""
+    # éxecute pour chaquye élément de la liste
     for i in range (len(table)-1):
+        # si l'élément i de la table table est le nombre que l'on cherche :
         if(table[i]==number):
+            #pour eviter de concaténer avec une chaine de chara vide
             if(before == ""):
                 before=i
             else :
+                # on concaténe l'index du nombre voulu dans before
                 before = concat(before,i)
     return before
 
