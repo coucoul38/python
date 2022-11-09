@@ -9,7 +9,7 @@
 #foncion du jeu (play())
 #on récupère le nombre de manche grace à input() et on l'assigne à nombreDeManches
     #tant que manche <= nombreDeManches
-        #le joueur entre son choix grace à input() : variable choix
+        #le joueur entre son choix grace à input() : on assigne le retour à la variable choix
             #si choix = p
                 #alors choixNb = 1
             #si choix = f
