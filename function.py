@@ -144,7 +144,7 @@ def find(table, number):
     #def
     chaineResultat = ""
     while i<len(tableau):
-        if tableau[i]==x:
+        if tableau[i]==number:
             firstTurn = True
             if firstTurn: 
                 chaineResultat = str(i)
