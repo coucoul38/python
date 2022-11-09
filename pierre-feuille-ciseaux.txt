@@ -1,16 +1,18 @@
-#v0.2
+#v0.3
 #on admet une fonction random() qui permet de choisir une option aléatoirement
 #on admet une fonction input(key) qui permet de récupérer l'entrée d'un joueur
 
 #le joueur entre le nombre de manches
 
-#tant que manche < nombreDeManches
+#fontion end() : finit la partie (manche=nombreDeManches)
+
+#tant que manche <= nombreDeManches
     #le joueur entre son choix
         #1 = pierre
         #2 = feuille
         #3 = ciseaux
         
-    #on choisi un résultat aléatoire entre 1,2,3: ce que va jouer le bot
+    #on choisis un résultat aléatoire entre 1,2,3: ce que va jouer le bot
 
     #si le joueur à joué pareil que le bot
         #dire qu'il y a eu égalité
