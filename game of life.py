@@ -22,7 +22,7 @@ def createGrid(x):
     for p in range(len(tabA)):
         print(tabA[p])
 
-def showTouchingCoordinates(column, row):
+def showTouchingCells(column, row):
     #display toutes les cases adjacentes à celle séléctionée
     display = [
         [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
@@ -31,7 +31,13 @@ def showTouchingCoordinates(column, row):
     ]
     for p in range(len(display)):
         print(display[p])
+    return(display)
 
+def countTouchingCells(column,row):
+    for i in range(3):
+        for o in range(3):
+            if(showTouchingCells(column,row)[i][o])
 
 createGrid(10)
-showTouchingCoordinates(1,1)
+showTouchingCells(1,1)
+countTouchingCells(1,1)
