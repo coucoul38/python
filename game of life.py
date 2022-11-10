@@ -29,14 +29,19 @@ def showTouchingCells(column, row):
         [tabA[column][row-1],tabA[column][row], tabA[column][row+1]],
         [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
     ]
-    for p in range(len(display)):
+    for p in range(3):
         print(display[p])
     return(display)
 
 def countTouchingCells(column,row):
+    adjacents=0
     for i in range(3):
         for o in range(3):
-            if(showTouchingCells(column,row)[i][o])
+            if(showTouchingCells(column,row)[i][o]):
+                adjacents=adjacents+1
+    print(adjacents)
+    return(adjacents)
+
 
 createGrid(10)
 showTouchingCells(1,1)
