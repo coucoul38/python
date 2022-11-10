@@ -83,7 +83,7 @@ def cellUpdate(iterations, timer):
                 print()
 
 
-createGrid(20)
+createGrid(10)
 displayGrid()
 showTouchingCells(1,1)
 print(countTouchingCells(1,1))
