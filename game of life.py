@@ -25,10 +25,18 @@ def createGrid(x):
      #   print(tabA[p])
     #print()
 
+
 def displayGrid():
-    for p in range(len(tabA)):
-        print(tabA[p])
-    print()
+    for i in range(len(tabA)):
+        for o in range(len(tabA)):
+            if(tabA[i][o]==0):
+                print("🟥", end='')
+            else :
+                print("⬜", end='')
+            #print(tabA[p])
+        print("", end='\n')
+    #print("", end='\n')
+
 
 def touchingCells(column, row):
     #trouve toutes les cases adjacentes à celle séléctionée
@@ -46,6 +54,7 @@ def showTouchingCells(column, row):
         print(touchingCells(column,row)[p])
     print()
 
+
 def countTouchingCells(column,row):
     adjacents=0
     for i in range(3):
@@ -53,6 +62,7 @@ def countTouchingCells(column,row):
             if(touchingCells(column,row)[i][o]):
                 adjacents=adjacents+1
     return(adjacents)
+
 
 def cellUpdate(iterations, timer):
     for i in range(iterations):
@@ -70,11 +80,12 @@ def cellUpdate(iterations, timer):
                     tabA[column][row]=0
                 time.sleep(timer)
                 displayGrid()
+                print()
 
 
-createGrid(5)
+createGrid(20)
 displayGrid()
 showTouchingCells(1,1)
 print(countTouchingCells(1,1))
 
-cellUpdate(3,1)
+cellUpdate(30,0.1)
