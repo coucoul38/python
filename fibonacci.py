@@ -1,6 +1,3 @@
-
-
-
 def fibo(iterations):
     #on initialise les 1ers chiffres
     n1, n2 = 0, 1
@@ -11,4 +8,4 @@ def fibo(iterations):
         n1 = n2
         n2 = n3
 
-fibo(69)    
+fibo(69)
