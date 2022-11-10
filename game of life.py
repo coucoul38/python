@@ -15,7 +15,7 @@ def createGrid(x):
         tabB=[]
         for o in range(x):
             #on met un nombre aléatoire dans chaque case
-            tabB.append(random.randint(0,9))
+            tabB.append(random.randint(0,1))
         #on insère la ligne aux colonnes
         tabA.append(tabB)
     
@@ -23,6 +23,7 @@ def createGrid(x):
         print(tabA[p])
 
 def showTouchingCoordinates(column, row):
+    #display toutes les cases adjacentes à celle séléctionée
     display = [
         [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
         [tabA[column][row-1],tabA[column][row], tabA[column][row+1]],
@@ -33,5 +34,4 @@ def showTouchingCoordinates(column, row):
 
 
 createGrid(10)
-print(tabA[1][1])
 showTouchingCoordinates(1,1)
