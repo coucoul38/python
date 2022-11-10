@@ -5,6 +5,8 @@
 #ensuite retourner toutes les cases adjacentes 
 
 import random
+import time
+
 tabA=[]
 def createGrid(x):
     #initialisation de la liste contenant chaque colonne
@@ -19,30 +21,60 @@ def createGrid(x):
         #on insère la ligne aux colonnes
         tabA.append(tabB)
     
+    #for p in range(len(tabA)):
+     #   print(tabA[p])
+    #print()
+
+def displayGrid():
     for p in range(len(tabA)):
         print(tabA[p])
+    print()
 
-def showTouchingCells(column, row):
-    #display toutes les cases adjacentes à celle séléctionée
+def touchingCells(column, row):
+    #trouve toutes les cases adjacentes à celle séléctionée
     display = [
         [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
         [tabA[column][row-1],tabA[column][row], tabA[column][row+1]],
         [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
     ]
-    for p in range(3):
-        print(display[p])
     return(display)
+
+
+def showTouchingCells(column, row):
+    #display le tableau de la fonction touchingCells
+    for p in range(3):
+        print(touchingCells(column,row)[p])
+    print()
 
 def countTouchingCells(column,row):
     adjacents=0
     for i in range(3):
         for o in range(3):
-            if(showTouchingCells(column,row)[i][o]):
+            if(touchingCells(column,row)[i][o]):
                 adjacents=adjacents+1
-    print(adjacents)
     return(adjacents)
 
+def cellUpdate(iterations, timer):
+    for i in range(iterations):
+        column = 0
+        for o in range(len(tabA)):
+            column = column + 1
+            row = 0
+            for p in range(len(tabA)):
+                row = row + 1
+                if countTouchingCells(column, row)==3 :
+                    tabA[column][row]=1
+                elif countTouchingCells(column, row)>3 :
+                    tabA[column][row]=0
+                elif countTouchingCells(column, row) < 2:
+                    tabA[column][row]=0
+                time.sleep(timer)
+                displayGrid()
 
-createGrid(10)
+
+createGrid(5)
+displayGrid()
 showTouchingCells(1,1)
-countTouchingCells(1,1)
+print(countTouchingCells(1,1))
+
+cellUpdate(3,1)
