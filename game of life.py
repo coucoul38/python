@@ -30,7 +30,7 @@ def displayGrid():
     for i in range(len(tabA)):
         for o in range(len(tabA)):
             if(tabA[i][o]==0):
-                print("🟥", end='')
+                print("⬛", end='')
             else :
                 print("⬜", end='')
             #print(tabA[p])
