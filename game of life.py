@@ -69,8 +69,6 @@ def cellUpdate(iterations, timer):
         column = 0
         row=0
         for o in range(len(tabA)):
-            column = column + 1
-            row = 0
             for p in range(len(tabA)):
                 row = row + 1
                 if countTouchingCells(column, row)==3 :
@@ -82,6 +80,8 @@ def cellUpdate(iterations, timer):
                 time.sleep(timer)
                 displayGrid()
                 print()
+            column = column + 1
+            row = 0
 
 
 createGrid(10)
