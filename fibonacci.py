@@ -11,11 +11,13 @@ def fibo(iterations, n2):
 
 fibo(69,3)
 
+
+#marche pas
 def fiboList(iterations):
     #on initialise les 1ers chiffres
     list=[0,1]
     #on execute le nombre de fois demandé
     for i in range(iterations):
-        list.append(list[i-1] + list[i-2])
+        list.append(list[i-1] + list[i])
         i=i+1
     print(list)
