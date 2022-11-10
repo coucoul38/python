@@ -67,6 +67,7 @@ def countTouchingCells(column,row):
 def cellUpdate(iterations, timer):
     for i in range(iterations):
         column = 0
+        row=0
         for o in range(len(tabA)):
             column = column + 1
             row = 0
