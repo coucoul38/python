@@ -4,9 +4,10 @@
 #on admet une fonction input() qui permet de récupérer l'entrée d'un joueur
 
 #DEBUT
-    #fontion end() : finit la partie (manche=nombreDeManches)
+    #fontion end() : finit la partie (nombreDeManches=manche)
 
     #on crée la fonction play(nombreDeManches)
+        #manche = 0
         #tant que manche <= nombreDeManches
             #le joueur entre son choix grace à input() : on assigne le retour à la variable choix
                 #si choix = p

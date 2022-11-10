@@ -88,4 +88,4 @@ displayGrid()
 showTouchingCells(1,1)
 print(countTouchingCells(1,1))
 
-cellUpdate(30,0.1)
+cellUpdate(100,1)
