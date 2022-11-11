@@ -9,6 +9,7 @@ import time
 
 tabA=[]
 def createGrid(x):
+    global tabA
     #initialisation de la liste contenant chaque colonne
     
     #on crée x lignes
@@ -27,6 +28,7 @@ def createGrid(x):
 
 
 def displayGrid():
+    global tabA
     for i in range(len(tabA)):
         for o in range(len(tabA)):
             if(tabA[i][o]==0):
@@ -39,12 +41,25 @@ def displayGrid():
 
 
 def touchingCells(column, row):
+    global tabA
     #trouve toutes les cases adjacentes à celle séléctionée
+    #if (column>0 & column<len(tabA)-1) & (row>0 & row < len(tabA)-1):
     display = [
         [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
         [tabA[column][row-1],"X", tabA[column][row+1]],
         [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
     ]
+    #elif column==0 :
+    #    display = [
+    #        [tabA[column][row-1],"X", tabA[column][row+1]],
+    #        [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
+    #    ]
+    #elif column==len(tabA)-1 :
+    #    display = [
+    #        [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
+    #        [tabA[column][row-1],"X", tabA[column][row+1]]
+    #    ]
+    #
     return(display)
 
 
@@ -65,6 +80,7 @@ def countTouchingCells(column,row):
 
 
 def cellUpdate(iterations, timer):
+    global tabA
     for i in range(iterations):
         column = 0
         row=0
@@ -84,6 +100,24 @@ def cellUpdate(iterations, timer):
         column = column + 1
         displayGrid()
         print()
+    
+def cellUpdate2(iterations, timer):
+    global tabA
+    for a in range(iterations):
+        newGrid = []
+        for i in range(len(tabA)):
+            #on crée une ligne de longueur x 
+            newB=[]
+            for o in range(len(tabA)):
+                #on met un nombre aléatoire dans chaque case
+                if countTouchingCells(i,o)==3 :
+                    newB.append(1)
+                elif countTouchingCells(i,o)>3 | countTouchingCells(i,o)<2:
+                    newB.append(0)
+            #on insère la ligne aux colonnes
+            newGrid.append(newB)
+        time.sleep(timer)
+        tabA=newGrid
 
 
 createGrid(4)
@@ -91,4 +125,4 @@ displayGrid()
 showTouchingCells(1,1)
 print(countTouchingCells(1,1))
 
-cellUpdate(1,1)
+cellUpdate2(1,1)
