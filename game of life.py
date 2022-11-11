@@ -10,8 +10,6 @@ import time
 tabA=[]
 def createGrid(x):
     global tabA
-    #initialisation de la liste contenant chaque colonne
-    
     #on crée x lignes
     for i in range(x):
         #on crée une ligne de longueur x 
@@ -42,41 +40,26 @@ def displayGrid():
 
 def touchingCells(column, row):
     global tabA
+    alive=0-tabA[column][row]
+    for C in range(column-1,column+2):
+        for R in range(row-1,row+2):
+            #print("C,R : ",C,R)
+            if C >= 0 and C < len(tabA) and R>=0 and R<len(tabA):
+                alive = alive + tabA[C][R]
+                #print("Tab C,R : ",tabA[C][R])
+            
+    return alive
     #trouve toutes les cases adjacentes à celle séléctionée
-    #if (column>0 & column<len(tabA)-1) & (row>0 & row < len(tabA)-1):
-    display = [
-        [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
-        [tabA[column][row-1],"X", tabA[column][row+1]],
-        [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
-    ]
-    #elif column==0 :
-    #    display = [
-    #        [tabA[column][row-1],"X", tabA[column][row+1]],
-    #        [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
-    #    ]
-    #elif column==len(tabA)-1 :
-    #    display = [
-    #        [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
-    #        [tabA[column][row-1],"X", tabA[column][row+1]]
-    #    ]
-    #
-    return(display)
 
 
-def showTouchingCells(column, row):
-    #display le tableau de la fonction touchingCells
-    for p in range(3):
-        print(touchingCells(column,row)[p])
-    print()
-
-
-def countTouchingCells(column,row):
-    adjacents=0
-    for i in range(3):
-        for o in range(3):
-            if(touchingCells(column,row)[i][o]):
-                adjacents=adjacents+1
-    return(adjacents)
+#PAS UTILE
+#def countTouchingCells(column,row):
+#    adjacents=0
+#    for i in range(3):
+#        for o in range(3):
+#            if(touchingCells(column,row)[i][o]):
+#                adjacents=adjacents+1
+#    return(adjacents)
 
 
 def cellUpdate(iterations, timer):
@@ -110,19 +93,36 @@ def cellUpdate2(iterations, timer):
             newB=[]
             for o in range(len(tabA)):
                 #on met un nombre aléatoire dans chaque case
-                if countTouchingCells(i,o)==3 :
+                if touchingCells(i,o)==3 :
                     newB.append(1)
-                elif countTouchingCells(i,o)>3 | countTouchingCells(i,o)<2:
+                elif touchingCells(i,o)>3 | touchingCells(i,o)<2:
                     newB.append(0)
             #on insère la ligne aux colonnes
             newGrid.append(newB)
         time.sleep(timer)
         tabA=newGrid
 
+def cellUpdate3(iterations, timer):
+    global tabA
+    newGrid = []
+    for ite in range(iterations):
+        for column in range(0,len(tabA)-1):
+            newRow=[]
+            for row in range(0,len(tabA)-1):
+                if touchingCells(column,row)==3:
+                    newRow.append(1)
+                elif touchingCells(column,row)==2:
+                    newRow.append(tabA[column][row])
+                else:
+                    newRow.append(0)
+            newGrid.append(newRow)
+        tabA=newGrid
+        time.sleep(timer)
+
 
 createGrid(4)
 displayGrid()
-showTouchingCells(1,1)
-print(countTouchingCells(1,1))
+#showTouchingCells(1,1)
+print(touchingCells(3,3))
 
-cellUpdate2(1,1)
+cellUpdate3(10,1)
