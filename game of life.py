@@ -61,68 +61,36 @@ def touchingCells(column, row):
 #                adjacents=adjacents+1
 #    return(adjacents)
 
-
-def cellUpdate(iterations, timer):
-    global tabA
-    for i in range(iterations):
-        column = 0
-        row=0
-        for o in range(len(tabA)):
-            print("o")
-            for p in range(len(tabA)):
-                print("p")
-                row = row + 1
-                if countTouchingCells(column, row)==3 :
-                    tabA[column][row]=1
-                elif countTouchingCells(column, row)>3 :
-                    tabA[column][row]=0
-                elif countTouchingCells(column, row) < 2:
-                    tabA[column][row]=0
-                time.sleep(timer)
-            row = 0
-        column = column + 1
-        displayGrid()
-        print()
-    
-def cellUpdate2(iterations, timer):
-    global tabA
-    for a in range(iterations):
-        newGrid = []
-        for i in range(len(tabA)):
-            #on crée une ligne de longueur x 
-            newB=[]
-            for o in range(len(tabA)):
-                #on met un nombre aléatoire dans chaque case
-                if touchingCells(i,o)==3 :
-                    newB.append(1)
-                elif touchingCells(i,o)>3 | touchingCells(i,o)<2:
-                    newB.append(0)
-            #on insère la ligne aux colonnes
-            newGrid.append(newB)
-        time.sleep(timer)
-        tabA=newGrid
-
-def cellUpdate3(iterations, timer):
+def cellUpdate():
     global tabA
     newGrid = []
-    for ite in range(iterations):
-        for column in range(0,len(tabA)-1):
-            newRow=[]
-            for row in range(0,len(tabA)-1):
-                if touchingCells(column,row)==3:
-                    newRow.append(1)
-                elif touchingCells(column,row)==2:
-                    newRow.append(tabA[column][row])
-                else:
-                    newRow.append(0)
-            newGrid.append(newRow)
-        tabA=newGrid
+    for column in range(0,len(tabA)):
+        newRow=[]
+        for row in range(0,len(tabA)):
+            #print("Column: ",column)
+            #print("Row: ",row)
+            if touchingCells(column,row)==3:
+                newRow.append(1)
+            elif touchingCells(column,row)==2:
+                newRow.append(tabA[column][row])
+            else:
+                newRow.append(0)
+        newGrid.append(newRow)
+    tabA=newGrid
+
+def update(iterations, timer):
+    for i in range(iterations):
+        cellUpdate()
+        displayGrid()
+        print("")
         time.sleep(timer)
+        
 
-
-createGrid(4)
-displayGrid()
+createGrid(30)
+#displayGrid()
 #showTouchingCells(1,1)
-print(touchingCells(3,3))
+#print(touchingCells(3,3))
 
-cellUpdate3(10,1)
+#cellUpdate3(10,1)
+
+update(1000,.5)
