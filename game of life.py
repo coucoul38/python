@@ -35,7 +35,6 @@ def displayGrid():
                 print("⬜", end='')
             #print(tabA[p])
         print("", end='\n')
-    #print("", end='\n')
 
 
 def touchingCells(column, row):
