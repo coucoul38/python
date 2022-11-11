@@ -9,4 +9,4 @@
 > Pseudo-code du jeu pierre feuille ciseaux (avec un bot)
 
 ## fonctionsEtExos.py
->Le cours d'Alexandre, avec les exercices, c'est un peu le bordel
+>Le cours d'Alexandre, avec les exercices, c'est un peu mal rangé, ne pas ouvrir svp 👉👈
