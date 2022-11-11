@@ -1,13 +1,9 @@
-#tableau tabA len(x)
-#dans tabA, nombre x de tableaux de longueur x
-
-#tabA[0][1] --> valeur
-#ensuite retourner toutes les cases adjacentes 
 
 import random
 import time
 
 tabA=[]
+#Création de la grille de base, avec des cellules placées aléatoirement
 def createGrid(x):
     global tabA
     #on crée x colonnes
@@ -15,7 +11,7 @@ def createGrid(x):
         #on crée une ligne de longueur x
         tabB=[]
         for o in range(x):
-            #on met un nombre aléatoire dans chaque case de la ligne
+            #on met un nombre aléatoire dans chaque case de la ligne (0=morte, 1=vivante)
             tabB.append(random.randint(0,1))
         #on insère la ligne dans le tableau, créant une colonne
         tabA.append(tabB)
@@ -49,6 +45,7 @@ def touchingCells(column, row):
                 alive = alive + tabA[C][R]
     #On renvoie le nombre de cases adjacentes en vie
     return alive
+    #Je tiens à remercier ma maman pour m'avoir aidé à faire marcher cette fonction
 
 #Cette fonction update la grille
 def cellUpdate():
