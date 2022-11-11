@@ -42,7 +42,7 @@ def touchingCells(column, row):
     #trouve toutes les cases adjacentes à celle séléctionée
     display = [
         [tabA[column-1][row-1],tabA[column-1][row],tabA[column-1][row+1]],
-        [tabA[column][row-1],tabA[column][row], tabA[column][row+1]],
+        [tabA[column][row-1],"X", tabA[column][row+1]],
         [tabA[column+1][row-1],tabA[column+1][row],tabA[column+1][row+1]]
     ]
     return(display)
@@ -69,7 +69,9 @@ def cellUpdate(iterations, timer):
         column = 0
         row=0
         for o in range(len(tabA)):
+            print("o")
             for p in range(len(tabA)):
+                print("p")
                 row = row + 1
                 if countTouchingCells(column, row)==3 :
                     tabA[column][row]=1
@@ -78,15 +80,15 @@ def cellUpdate(iterations, timer):
                 elif countTouchingCells(column, row) < 2:
                     tabA[column][row]=0
                 time.sleep(timer)
-                displayGrid()
-                print()
-            column = column + 1
             row = 0
+        column = column + 1
+        displayGrid()
+        print()
 
 
-createGrid(10)
+createGrid(4)
 displayGrid()
 showTouchingCells(1,1)
 print(countTouchingCells(1,1))
 
-cellUpdate(100,1)
+cellUpdate(1,1)
