@@ -54,3 +54,64 @@
 
     #executer la fonction play()
 #FIN
+
+import random
+
+def pfc(rounds):
+    global playerChoice
+    manche=0
+    botScore=0
+    playerScore=0
+
+    while manche<rounds:
+        askPLayer=input("Faites votre choix : p,f,c : ")
+        print("",end="\n")
+        botChoice = random.randint(1,3)
+        if(askPLayer=="p"):
+            playerChoice=1
+        elif(askPLayer=="f"):
+            playerChoice=2
+        elif(askPLayer=="c"):
+            playerChoice=3
+        else:
+            print("Erreur")
+
+        if playerChoice==botChoice:
+            print("Egalité")
+        elif playerChoice==1:
+            if botChoice ==2:
+                print("Le bot joue feuille: Perdu!")
+                botScore = botScore + 1
+            elif botChoice == 3:
+                print("Le bot joue ciseaux: Gagné!")
+                playerScore=playerScore+1
+        elif playerChoice==2:
+            if botChoice==1:
+                print("Le bot joue pierre: Gagné!")
+                playerScore=playerScore+1
+            elif botChoice==3:
+                print("Le bot joue ciseaux: Perdu!")
+                botScore=botScore+1
+        elif playerChoice==3:
+            if botChoice==1:
+                print("Le bot joue pierre: Perdu!")
+                botScore=botScore+1
+            elif botChoice==2:
+                print("Le bot joue feuille: Gagné!")
+                playerScore=playerScore+1
+        
+        print("",end="\n")
+        print("Score du joueur : ", playerScore)
+        print("Score du bot : ", botScore)
+        print("",end="\n")
+        manche=manche+1
+
+    if playerScore==botScore:
+        print("Résultat de la partie : Egalité")
+    elif playerScore>botScore:
+        print("Résultat de la partie : Victoire du Joueur")
+    else :
+        print("Résultat de la partie : Victoire du Bot")
+    
+
+pfc(10)
