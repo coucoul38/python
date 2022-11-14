@@ -12,7 +12,7 @@ def createGrid():
         tabB=[]
         for o in range(3):
             #on met un nombre aléatoire dans chaque case de la ligne (0=morte, 1=vivante)
-            tabB.append("-")
+            tabB.append(0)
         #on insère la ligne dans le tableau, créant une colonne
         tabA.append(tabB)
 
@@ -38,23 +38,59 @@ def play(player):
     print("Joueur ",player," :")
     entry=input()
     if entry=="7":
-        tabA[0][0]=player
+        if(tabA[0][0]==0):
+            tabA[0][0]=player
     elif entry=="8":
-        tabA[0][1]=player
+        if(tabA[0][1]==0):
+            tabA[0][1]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="9":
-        tabA[0][2]=player
+        if(tabA[0][2]==0):
+            tabA[0][2]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="4":
-        tabA[1][0]=player
+        if(tabA[1][0]==0):
+            tabA[1][0]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="5":
-        tabA[1][1]=player
+        if(tabA[1][1]==0):
+            tabA[1][1]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="6":
-        tabA[1][2]=player
+        if(tabA[1][2]==0):
+            tabA[1][2]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="1":
-        tabA[2][0]=player
+        if(tabA[2][0]==0):
+            tabA[2][0]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="2":
-        tabA[2][1]=player
+        if(tabA[2][1]==0):
+            tabA[2][1]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="3":
-        tabA[2][2]=player
+        if(tabA[2][2]==0):
+            tabA[2][2]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
+    else:
+        print("Erreur")
+        play(player)
 
 def ticTacToe():
     global tabA
@@ -65,6 +101,7 @@ def ticTacToe():
     displayGrid
     while winner == False:
         play(1)
+        displayGrid()
     
 createGrid()
 ticTacToe()
