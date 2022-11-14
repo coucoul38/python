@@ -65,6 +65,20 @@ def checkForWin():
         check1=0
         check2=0
 
+    #
+    for case in range(3):
+        if tabA[case-1][case-1]==1:
+            check1=check1+1
+        elif tabA[case-1][case-1]==2:
+            check2=check2+1
+        if check1==3:
+            winner="player1"
+        elif check2==3:
+            winner="player2"
+    
+    check1 = 0
+    check2 = 0
+
     print(winner)
     return winner
 
@@ -136,10 +150,12 @@ def ticTacToe():
     while winner == False:
         play(1)
         displayGrid()
-        checkForWin()
+        if checkForWin()!="none":
+            return
         play(2)
         displayGrid()
-        checkForWin()
+        if checkForWin()!="none":
+            return
     
 createGrid()
 ticTacToe()
