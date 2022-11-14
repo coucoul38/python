@@ -65,7 +65,7 @@ def checkForWin():
         check1=0
         check2=0
 
-    #
+    #check en bias de gauche à droite
     for case in range(3):
         if tabA[case-1][case-1]==1:
             check1=check1+1
@@ -75,7 +75,7 @@ def checkForWin():
             winner="player1"
         elif check2==3:
             winner="player2"
-    
+    #check en bias de droite à gauche
     if tabA[0][2]==tabA[1][1]==tabA[2][0]:
         if tabA[0][2]==1:
             winner="player1"
