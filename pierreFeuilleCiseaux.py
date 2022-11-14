@@ -57,7 +57,7 @@
 
 import random
 
-def pfc(rounds):
+def pfc(rounds, weDoALittleTrolling=False):
     global playerChoice
     manche=0
     botScore=0
@@ -66,15 +66,23 @@ def pfc(rounds):
     while manche<rounds:
         askPLayer=input("Faites votre choix : p,f,c : ")
         print("",end="\n")
-        botChoice = random.randint(1,3)
         if(askPLayer=="p"):
             playerChoice=1
+            if weDoALittleTrolling:
+                botChoice=2
         elif(askPLayer=="f"):
             playerChoice=2
+            if weDoALittleTrolling:
+                botChoice=3
         elif(askPLayer=="c"):
             playerChoice=3
+            if weDoALittleTrolling:
+                botChoice=1
         else:
             print("Erreur")
+        
+        if weDoALittleTrolling==False:
+            botChoice = random.randint(1,3)
 
         if playerChoice==botChoice:
             print("Egalité")
@@ -114,4 +122,4 @@ def pfc(rounds):
         print("Résultat de la partie : Victoire du Bot")
     
 
-pfc(10)
+pfc(10,True)
