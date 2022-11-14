@@ -65,7 +65,7 @@ def pfc(rounds, weDoALittleTrolling=False):
 
     while manche<rounds:
         askPLayer=input("Faites votre choix : p,f,c : ")
-        print("",end="\n")
+        print("--------------------")
         if(askPLayer=="p"):
             playerChoice=1
             if weDoALittleTrolling:
@@ -108,10 +108,10 @@ def pfc(rounds, weDoALittleTrolling=False):
                 print("Le bot joue feuille: Gagné!")
                 playerScore=playerScore+1
         
-        print("",end="\n")
+        print("--------------------")
         print("Score du joueur : ", playerScore)
         print("Score du bot : ", botScore)
-        print("",end="\n")
+        print("====================")
         manche=manche+1
 
     if playerScore==botScore:
@@ -122,4 +122,4 @@ def pfc(rounds, weDoALittleTrolling=False):
         print("Résultat de la partie : Victoire du Bot")
     
 
-pfc(10,True)
+pfc(10)
