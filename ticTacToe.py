@@ -76,6 +76,19 @@ def checkForWin():
         elif check2==3:
             winner="player2"
     
+    for row in range(3):
+        col = 2-row 
+        print("Row : ",row)
+        print("Col : ", col)
+        if tabA[row][col]==1:
+            check1=check1+1
+        elif tabA[row][col]==2:
+            check2=check2+1
+        if check1==3:
+            winner="player1"
+        elif check2==3:
+            winner="player2"
+    
     check1 = 0
     check2 = 0
 
