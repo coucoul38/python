@@ -33,6 +33,40 @@ def displayGrid():
 
 def checkForWin():
     global tabA
+    col=0
+    row=0
+    check1=0
+    check2=0
+    winner = "none"
+    #check for horizontal win
+    for col in range(3):
+        for row in range(3):
+            if tabA[col-1][row-1]==1:
+                check1=check1+1
+            elif tabA[col-1][row-1]==2:
+                check2=check2+1
+            if check1==3:
+                winner="player1"
+            elif check2==3:
+                winner="player2"
+        check1=0
+        check2=0
+    #check for vertical wins
+    for row in range(3):
+        for col in range(3):
+            if tabA[col-1][row-1]==1:
+                check1=check1+1
+            elif tabA[col-1][row-1]==2:
+                check2=check2+1
+            if check1==3:
+                winner="player1"
+            elif check2==3:
+                winner="player2"
+        check1=0
+        check2=0
+
+    print(winner)
+    return winner
 
 def play(player):
     print("Joueur ",player," :")
@@ -102,6 +136,10 @@ def ticTacToe():
     while winner == False:
         play(1)
         displayGrid()
+        checkForWin()
+        play(2)
+        displayGrid()
+        checkForWin()
     
 createGrid()
 ticTacToe()
