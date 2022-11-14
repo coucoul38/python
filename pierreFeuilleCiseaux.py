@@ -64,9 +64,12 @@ def pfc(rounds, weDoALittleTrolling=False):
     playerScore=0
 
     while manche<rounds:
-        askPLayer=input("Faites votre choix : p,f,c : ")
+        askPLayer=input("Faites votre choix : p,f,c ou exit: ")
         print("--------------------")
-        if(askPLayer=="p"):
+        if askPLayer=="exit":
+            print("Vous avez déclaré forfait")
+            return
+        elif(askPLayer=="p"):
             playerChoice=1
             if weDoALittleTrolling:
                 botChoice=2
