@@ -34,6 +34,28 @@ def displayGrid():
 def checkForWin():
     global tabA
 
+def play(player):
+    print("Joueur ",player," :")
+    entry=input()
+    if entry=="7":
+        tabA[0][0]=player
+    elif entry=="8":
+        tabA[0][1]=player
+    elif entry=="9":
+        tabA[0][2]=player
+    elif entry=="4":
+        tabA[1][0]=player
+    elif entry=="5":
+        tabA[1][1]=player
+    elif entry=="6":
+        tabA[1][2]=player
+    elif entry=="1":
+        tabA[2][0]=player
+    elif entry=="2":
+        tabA[2][1]=player
+    elif entry=="3":
+        tabA[2][2]=player
+
 def ticTacToe():
     global tabA
     print("Pour jouer, utilisez les touches du pavé numérique")
@@ -42,47 +64,7 @@ def ticTacToe():
     winner=False
     displayGrid
     while winner == False:
-        entry=input("Joueur 1: ")
-        if entry=="7":
-            tabA[0][0]=1
-        elif entry=="8":
-            tabA[0][1]=1
-        elif entry=="9":
-            tabA[0][2]=1
-        elif entry=="4":
-            tabA[1][0]=1
-        elif entry=="5":
-            tabA[1][1]=1
-        elif entry=="6":
-            tabA[1][2]=1
-        elif entry=="1":
-            tabA[2][0]=1
-        elif entry=="2":
-            tabA[2][1]=1
-        elif entry=="3":
-            tabA[2][2]=1
-        displayGrid()
-        checkForWin()
-        entry=input("Joueur 2: ")
-        if entry=="7":
-            tabA[0][0]=2
-        elif entry=="8":
-            tabA[0][1]=2
-        elif entry=="9":
-            tabA[0][2]=2
-        elif entry=="4":
-            tabA[1][0]=2
-        elif entry=="5":
-            tabA[1][1]=2
-        elif entry=="6":
-            tabA[1][2]=2
-        elif entry=="1":
-            tabA[2][0]=2
-        elif entry=="2":
-            tabA[2][1]=2
-        elif entry=="3":
-            tabA[2][2]=2
-        displayGrid()
+        play(1)
     
 createGrid()
 ticTacToe()
