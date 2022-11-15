@@ -85,12 +85,12 @@ def checkForWin():
     check2 = 0
 
     #check pour egalité
-    amog = 0
+    checkTie = 0
     for i in range(3):
         for o in range(3):
             if tabA[i][o] != 0:
-                amog = amog + 1
-    if amog==9:
+                checkTie = checkTie + 1
+    if checkTie==9:
         winner="tie"
     return winner
 
