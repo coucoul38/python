@@ -3,7 +3,7 @@
 ## gameOfLife.py 
 > Le jeu de la vie de Conway, en python
 
-##ticTacToe.py
+## ticTacToe.py
 > Jeu du morpion avec 2 joueurs
 
 ## pierreFeuilleCiseaux.py
