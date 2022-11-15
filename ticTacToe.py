@@ -81,13 +81,8 @@ def checkForWin():
             winner="player1"
         elif tabA[0][2]==2:
             winner="player2"
-    
-        
-    
     check1 = 0
     check2 = 0
-
-    print(winner)
     return winner
 
 def play(player):
@@ -158,12 +153,17 @@ def ticTacToe():
     while winner == False:
         play(1)
         displayGrid()
-        if checkForWin()!="none":
+        if checkForWin()!="player1":
+            print("Le joueur 1 à gagné !")
+            return
+        elif checkForWin()!="player2":
+            print("Le joueur 2 à gagné !")
             return
         play(2)
         displayGrid()
         if checkForWin()!="none":
             return
+            
     
 createGrid()
 ticTacToe()
