@@ -164,7 +164,7 @@ def play(player):
 def ticTacToe():
     global tabA
     print("Pour jouer, utilisez les touches du pavé numérique")
-    displayGrid
+    displayGrid()
     while True:
         for i in range(1,3):
             play(i)
