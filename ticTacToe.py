@@ -83,14 +83,32 @@ def checkForWin():
             winner="player2"
     check1 = 0
     check2 = 0
+
+    #check pour egalité
+    amog = 0
+    for i in range(3):
+        for o in range(3):
+            if tabA[i][o] != 0:
+                amog = amog + 1
+    if amog==9:
+        winner="tie"
     return winner
 
 def play(player):
-    print("Joueur ",player," :")
+    print("----------")
+    print("Joueur ",player,end="")
+    if player==1:
+        print("⭕️",end="\n")
+    if player==2:
+        print("❌",end="\n")
+
     entry=input()
     if entry=="7":
         if(tabA[0][0]==0):
             tabA[0][0]=player
+        else:
+            print("Vous ne pouvez pas faire cette action")
+            play(player)
     elif entry=="8":
         if(tabA[0][1]==0):
             tabA[0][1]=player
@@ -146,24 +164,21 @@ def play(player):
 def ticTacToe():
     global tabA
     print("Pour jouer, utilisez les touches du pavé numérique")
-    player1Score=0
-    player2Score=0
     winner=False
     displayGrid
     while winner == False:
-        play(1)
-        displayGrid()
-        if checkForWin()!="player1":
-            print("Le joueur 1 à gagné !")
-            return
-        elif checkForWin()!="player2":
-            print("Le joueur 2 à gagné !")
-            return
-        play(2)
-        displayGrid()
-        if checkForWin()!="none":
-            return
-            
-    
+        for i in range(1,3):
+            play(i)
+            displayGrid()
+            if checkForWin()=="player1":
+                print("LE JOUEUR 1 GAGNE! ⭕️")
+                return
+            elif checkForWin()=="player2":
+                print("LE JOUEUR 2 GAGNE! ❌")
+                return
+            elif checkForWin()=="tie":
+                print("EGALITE!")
+                return
+
 createGrid()
 ticTacToe()
