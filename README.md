@@ -6,7 +6,7 @@ Ne copiez pas bêtement mon code si vous ne comprenez pas, c'est la meilleure fa
 ## gameOfLife.py 
 > Le jeu de la vie de Conway, en python
 
-##ticTacToe.py
+## ticTacToe.py
 > Jeu du morpion avec 2 joueurs
 
 ## pierreFeuilleCiseaux.py
