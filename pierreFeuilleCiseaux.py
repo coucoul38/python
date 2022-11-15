@@ -125,4 +125,4 @@ def pfc(rounds, weDoALittleTrolling=False):
         print("Résultat de la partie : Victoire du Bot")
     
 
-pfc(10)
+pfc(10,True)
