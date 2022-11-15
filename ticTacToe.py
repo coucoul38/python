@@ -171,12 +171,15 @@ def ticTacToe():
             displayGrid()
             if checkForWin()=="player1":
                 print("LE JOUEUR 1 GAGNE! ⭕️")
+                print("====================")
                 return
             elif checkForWin()=="player2":
                 print("LE JOUEUR 2 GAGNE! ❌")
+                print("====================")
                 return
             elif checkForWin()=="tie":
                 print("EGALITE!")
+                print("====================")
                 return
 
 createGrid()
