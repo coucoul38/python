@@ -1,3 +1,6 @@
+## **__DISCLAIMER__**
+Ne copiez pas bêtement mon code si vous ne comprenez pas, c'est la meilleure façon de se foirer et ça ne va pas vous faire progresser.
+
 # Contenu du repository :
 
 ## gameOfLife.py 
