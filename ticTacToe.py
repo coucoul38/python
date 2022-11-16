@@ -181,6 +181,7 @@ def botMinimax():
     pos=tabA
     currentPos=pos[0]
     minimax(currentPos, depth,True)
+    # USE LINKED LISTS FOR CHILD MANAGEMENT
 
 def botPlay():
     #win=False
