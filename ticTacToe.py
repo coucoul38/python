@@ -1,4 +1,4 @@
-
+import math
 
 def play(player):
     input("")
@@ -157,6 +157,15 @@ def play(player):
         print("Erreur")
         play(player)
 
+
+def minimax(position, maximizingPlayer):
+    if maximizingPlayer:
+        maxEval = -math.inf
+        #for each child of the current position :
+        for i in range(childs of pos):
+            eval=minimax(child, False)
+            maxEval= max(maxEval,eval)
+        return maxEval
 
 def botPlay():
     #win=False
