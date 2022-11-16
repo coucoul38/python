@@ -201,7 +201,7 @@ def botPlay():
                         played=True
                 check1=0
         check1=0
-    #diagonal counter de gauche à droite
+    #diagonal counter
     for a in range(3):
         if tabA[a][a]==1:
             check1=check1+1
@@ -211,7 +211,21 @@ def botPlay():
                     tabA[b][b]=2
                     played=True
             check1=0
-
+    for a in range(3):
+        if tabA[a][2-a]==1:
+            check1=check1+1
+        if check1==2:
+            for b in range(3):
+                if tabA[b][2-b]==0 and played==False:
+                    tabA[b][2-b]=2
+                    played=True
+            check1=0
+    if played==False :
+        for i in range(3):
+            for o in range(3):
+                if tabA[i][o]==0 and played==False:
+                    tabA[i][o]=2
+                    played=True
 
 def ticTacToe(bot=False):
     global tabA
