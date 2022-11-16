@@ -4,6 +4,7 @@ def play(player):
     input("")
 
 tabA=[]
+pos=[tabA]
 def createGrid():
     global tabA
     #on crée x colonnes
@@ -158,14 +159,28 @@ def play(player):
         play(player)
 
 
-def minimax(position, maximizingPlayer):
+def minimax(position, depth, maximizingPlayer):
+    if depth==0 #or game over in position
+        return None
     if maximizingPlayer:
         maxEval = -math.inf
         #for each child of the current position :
         for i in range(childs of pos):
-            eval=minimax(child, False)
+            eval=minimax(child, depth-1, False)
             maxEval= max(maxEval,eval)
         return maxEval
+    else :
+        minEval = math.inf
+        for i in range(childs of pos):
+            eval=minimax(child, depth-1, False)
+            minEval= max(minEval,eval)
+        return minEval
+
+def botMinimax():
+    global pos
+    pos=tabA
+    currentPos=pos[0]
+    minimax(currentPos, depth,True)
 
 def botPlay():
     #win=False
