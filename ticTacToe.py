@@ -1,4 +1,5 @@
 import math
+import copy
 
 def play(player):
     input("")
@@ -32,8 +33,7 @@ def displayGrid():
         #on met une ligne vide, pour mieux différencier chaque grille
         print("", end='\n')
 
-def checkForWin():
-    global tabA
+def checkForWin(list):
     col=0
     row=0
     check1=0
@@ -42,9 +42,9 @@ def checkForWin():
     #check for horizontal win
     for col in range(3):
         for row in range(3):
-            if tabA[col-1][row-1]==1:
+            if list[col-1][row-1]==1:
                 check1=check1+1
-            elif tabA[col-1][row-1]==2:
+            elif list[col-1][row-1]==2:
                 check2=check2+1
             if check1==3:
                 winner="player1"
@@ -55,9 +55,9 @@ def checkForWin():
     #check for vertical wins
     for row in range(3):
         for col in range(3):
-            if tabA[col-1][row-1]==1:
+            if list[col-1][row-1]==1:
                 check1=check1+1
-            elif tabA[col-1][row-1]==2:
+            elif list[col-1][row-1]==2:
                 check2=check2+1
             if check1==3:
                 winner="player1"
@@ -67,14 +67,14 @@ def checkForWin():
         check2=0
 
     #check en bias de gauche à droite
-    if tabA[0][0]==tabA[1][1]==tabA[2][2]:
-        if tabA[0][0]==1:
+    if list[0][0]==list[1][1]==list[2][2]:
+        if list[0][0]==1:
             winner="player1"
-        elif tabA[0][0]==2:
+        elif list[0][0]==2:
             winner="player2"
     #check en bias de droite à gauche
-    if tabA[0][2]==tabA[1][1]==tabA[2][0]:
-        if tabA[0][2]==1:
+    if list[0][2]==list[1][1]==list[2][0]:
+        if list[0][2]==1:
             winner="player1"
         elif tabA[0][2]==2:
             winner="player2"
@@ -85,7 +85,7 @@ def checkForWin():
     checkTie = 0
     for i in range(3):
         for o in range(3):
-            if tabA[i][o] != 0:
+            if list[i][o] != 0 and winner=="none":
                 checkTie = checkTie + 1
     if checkTie==9:
         winner="tie"
@@ -158,30 +158,41 @@ def play(player):
         print("Erreur")
         play(player)
 
-
-def minimax(position, depth, maximizingPlayer):
-    if depth==0 #or game over in position
-        return None
-    if maximizingPlayer:
-        maxEval = -math.inf
-        #for each child of the current position :
-        for i in range(childs of pos):
-            eval=minimax(child, depth-1, False)
-            maxEval= max(maxEval,eval)
-        return maxEval
-    else :
-        minEval = math.inf
-        for i in range(childs of pos):
-            eval=minimax(child, depth-1, False)
-            minEval= max(minEval,eval)
-        return minEval
-
-def botMinimax():
-    global pos
-    pos=tabA
-    currentPos=pos[0]
-    minimax(currentPos, depth,True)
-    # USE LINKED LISTS FOR CHILD MANAGEMENT
+def minimax(maximizingPlayer):
+    moves=[]
+    if maximizingPlayer=="player2":
+        minimizingPlayer="player1"
+    elif maximizingPlayer=="player1":
+        minimizingPlayer="player2"
+    else:
+        print("Error : wrong player ID")
+        return()
+    currentPlayer = 2 #this function is first called when the bot plays
+    for row in range(3):
+        for col in range(3):
+            if tabA[row][col]==0:
+                nextTab=copy.deepcopy(tabA)
+                nextTab[row][col]=currentPlayer
+                if currentPlayer==1:
+                    currentPlayer=2
+                elif currentPlayer==2:
+                    currentPlayer=1
+                else :
+                    return("currentPlayer out of range")
+                win=checkForWin(nextTab)
+                score=0
+                if win=="tie":
+                    score=0
+                elif win==maximizingPlayer:
+                    score = 1
+                elif win==minimizingPlayer:
+                    score=-1
+                    #return(nextTab)
+                result=((row, col),score)
+                moves.append(result)
+    #moves.sort(key=lambda moves: moves[1], reverse=True)
+    print(moves)
+    return moves[0]
 
 def botPlay():
     #win=False
@@ -200,7 +211,6 @@ def botPlay():
 
     check1=0
     check2=0
-
     #horizontal counter
     played=False
     for col in range(3):
@@ -258,21 +268,22 @@ def ticTacToe(bot=False):
     displayGrid()
     while True:
         for i in range(1,3):
+            minimax("player1")
             if bot==True and i==2:
                 botPlay()
             else:
                 play(i)
 
             displayGrid()
-            if checkForWin()=="player1":
+            if checkForWin(tabA)=="player1":
                 print("LE JOUEUR 1 GAGNE! ⭕️")
                 print("====================")
                 return
-            elif checkForWin()=="player2":
+            elif checkForWin(tabA)=="player2":
                 print("LE JOUEUR 2 GAGNE! ❌")
                 print("====================")
                 return
-            elif checkForWin()=="tie":
+            elif checkForWin(tabA)=="tie":
                 print("EGALITE!")
                 print("====================")
                 return
