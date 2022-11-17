@@ -173,12 +173,7 @@ def minimax(maximizingPlayer):
             if tabA[row][col]==0:
                 nextTab=copy.deepcopy(tabA)
                 nextTab[row][col]=currentPlayer
-                if currentPlayer==1:
-                    currentPlayer=2
-                elif currentPlayer==2:
-                    currentPlayer=1
-                else :
-                    return("currentPlayer out of range")
+                #print("Current player : ", currentPlayer)
                 win=checkForWin(nextTab)
                 score=0
                 if win=="tie":
@@ -188,10 +183,21 @@ def minimax(maximizingPlayer):
                 elif win==minimizingPlayer:
                     score=-1
                     #return(nextTab)
-                result=((row, col),score)
+                result=[[row, col],score]
                 moves.append(result)
+    if currentPlayer==1:
+        currentPlayer=2
+    elif currentPlayer==2:
+        currentPlayer=1
+    else :
+        return("currentPlayer out of range")
     #moves.sort(key=lambda moves: moves[1], reverse=True)
     print(moves)
+    bestMove=[0,0]
+    for i in range(len(moves)):
+        if moves[i][1]<bestMove[1]:
+            bestMove=moves[i]
+    print("Bestmove : ",bestMove)
     return moves[0]
 
 def botPlay():
@@ -211,8 +217,16 @@ def botPlay():
 
     check1=0
     check2=0
-    #horizontal counter
     played=False
+    bestmove=minimax("player1")
+    row=bestmove[0][0]
+    col=bestmove[0][1]
+    tabA[row][col]=2
+    played=True
+
+    #minimax("player1")
+
+    #horizontal counter
     for col in range(3):
         for row in range(3):
             if tabA[col-1][row-1]==1:
