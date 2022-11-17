@@ -180,6 +180,7 @@ def minimax(maximizingPlayer):
                     score=0
                 elif win==maximizingPlayer:
                     score = 1
+                    blockEnemy=[[row, col],score]
                 elif win==minimizingPlayer:
                     score=-1
                     #return(nextTab)
@@ -193,12 +194,13 @@ def minimax(maximizingPlayer):
         return("currentPlayer out of range")
     #moves.sort(key=lambda moves: moves[1], reverse=True)
     print(moves)
-    bestMove=[0,0]
+    bestMove=[[0,0],0]
+    blockEnemy=[[0,0],0]
     for i in range(len(moves)):
         if moves[i][1]<bestMove[1]:
             bestMove=moves[i]
     print("Bestmove : ",bestMove)
-    return moves[0]
+    return bestMove
 
 def botPlay():
     #win=False
@@ -219,62 +221,64 @@ def botPlay():
     check2=0
     played=False
     bestmove=minimax("player1")
-    row=bestmove[0][0]
-    col=bestmove[0][1]
-    tabA[row][col]=2
-    played=True
+    if bestmove[1]==-1 and played==False:
+        tabA[bestmove[0][0]][bestmove[0][1]]=2
+        played=True
+    
 
-    #minimax("player1")
-
-    #horizontal counter
-    for col in range(3):
-        for row in range(3):
-            if tabA[col-1][row-1]==1:
-                check1=check1+1
-            if check1==2:
-                for i in range(3):
-                    if tabA[col-1][i]==0 and played==False:
-                        tabA[col-1][i]=2
-                        played=True
-                check1=0
-        check1=0
-    #vertical counter
-    for row in range(3):
-        for col in range(3):
-            if tabA[col-1][row-1]==1:
-                check1=check1+1
-            if check1==2:
-                for i in range(3):
-                    if tabA[i][row-1]==0 and played==False:
-                        tabA[i][row-1]=2
-                        played=True
-                check1=0
-        check1=0
-    #diagonal counter
-    for a in range(3):
-        if tabA[a][a]==1:
-            check1=check1+1
-        if check1==2:
-            for b in range(3):
-                if tabA[b][b]==0 and played==False:
-                    tabA[b][b]=2
-                    played=True
-            check1=0
-    for a in range(3):
-        if tabA[a][2-a]==1:
-            check1=check1+1
-        if check1==2:
-            for b in range(3):
-                if tabA[b][2-b]==0 and played==False:
-                    tabA[b][2-b]=2
-                    played=True
-            check1=0
-    if played==False :
+    elif played==False :
         for i in range(3):
             for o in range(3):
                 if tabA[i][o]==0 and played==False:
                     tabA[i][o]=2
                     played=True
+    
+
+    #minimax("player1")
+
+    #horizontal counter
+    #for col in range(3):
+    #    for row in range(3):
+    #        if tabA[col-1][row-1]==1:
+    #            check1=check1+1
+    #        if check1==2:
+    #            for i in range(3):
+    #                if tabA[col-1][i]==0 and played==False:
+    #                    tabA[col-1][i]=2
+    #                    played=True
+    #            check1=0
+    #    check1=0
+    ##vertical counter
+    #for row in range(3):
+    #    for col in range(3):
+    #        if tabA[col-1][row-1]==1:
+    #            check1=check1+1
+    #        if check1==2:
+    #            for i in range(3):
+    #                if tabA[i][row-1]==0 and played==False:
+    #                    tabA[i][row-1]=2
+    #                    played=True
+    #            check1=0
+    #    check1=0
+    ##diagonal counter
+    #for a in range(3):
+    #    if tabA[a][a]==1:
+    #        check1=check1+1
+    #    if check1==2:
+    #        for b in range(3):
+    #            if tabA[b][b]==0 and played==False:
+    #                tabA[b][b]=2
+    #                played=True
+    #        check1=0
+    #for a in range(3):
+    #    if tabA[a][2-a]==1:
+    #        check1=check1+1
+    #    if check1==2:
+    #        for b in range(3):
+    #            if tabA[b][2-b]==0 and played==False:
+    #                tabA[b][2-b]=2
+    #                played=True
+    #        check1=0
 
 def ticTacToe(bot=False):
     global tabA
