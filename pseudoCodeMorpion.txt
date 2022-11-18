@@ -1,0 +1,15 @@
+Fonction createGrid():    
+    On crée la grille du morpion :
+        On crée trois lignes :
+            On initialise chaque case à 0
+
+Fonction displayGrid():
+    Pour chaque ligne de la grille :
+        Pour chaque colone : 
+            si l'élément est 0 :
+                print un carré blanc
+            sinon c'est c'est 1 :
+                print ⭕️
+            sinon si c'est 2 :
+                print ❌
+
