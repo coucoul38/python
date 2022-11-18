@@ -158,6 +158,7 @@ def play(player):
 
 def minimax(maximizingPlayer):
     moves=[]
+    bestMove=[-1,-1]
     if maximizingPlayer=="player2":
         minimizingPlayer="player1"
     elif maximizingPlayer=="player1":
@@ -176,27 +177,39 @@ def minimax(maximizingPlayer):
                 score=0
                 if win=="tie":
                     score=0
-                elif win==maximizingPlayer:
-                    score = 1
-                    blockEnemy=[[row, col],score]
                 elif win==minimizingPlayer:
                     score=-1
+                    bestMove=[row, col]
                     #return(nextTab)
                 result=[[row, col],score]
                 moves.append(result)
-    if currentPlayer==1:
-        currentPlayer=2
-    elif currentPlayer==2:
+    if score==0:
+        print("Checking enemy possibility to win")
         currentPlayer=1
-    else :
-        return("currentPlayer out of range")
+        for row in range(3):
+            for col in range(3):
+                if tabA[row][col]==0:
+                    nextTab=copy.deepcopy(tabA)
+                    nextTab[row][col]=currentPlayer
+                    #print("Current player : ", currentPlayer)
+                    win=checkForWin(nextTab)
+                    score=0
+                    if win=="tie":
+                        score=0
+                    elif win==maximizingPlayer:
+                        score=1
+                        bestMove=[row, col]
+                        #return(nextTab)
+                    result=[[row, col],score]
+                    moves.append(result)
+
     #moves.sort(key=lambda moves: moves[1], reverse=True)
     print(moves)
-    bestMove=[[0,0],0]
-    blockEnemy=[[0,0],0]
-    for i in range(len(moves)):
-        if moves[i][1]<bestMove[1]:
-            bestMove=moves[i]
+    #bestMove=[[0,0],0]
+    #blockEnemy=[[0,0],0]
+    #for i in range(len(moves)):
+    #    if moves[i][1]<bestMove[1]:
+    #        bestMove=moves[i]
     print("Bestmove : ",bestMove)
     return bestMove
 
@@ -219,64 +232,15 @@ def botPlay():
     check2=0
     played=False
     bestmove=minimax("player1")
-    if bestmove[1]==-1 and played==False:
-        tabA[bestmove[0][0]][bestmove[0][1]]=2
+    if bestmove[0]!=-1 and bestmove[1]!=-1 and played==False:
+        tabA[bestmove[0]][bestmove[1]]=2
         played=True
-    
-
     elif played==False :
         for i in range(3):
             for o in range(3):
                 if tabA[i][o]==0 and played==False:
                     tabA[i][o]=2
                     played=True
-    
-
-    #minimax("player1")
-
-    #horizontal counter
-    #for col in range(3):
-    #    for row in range(3):
-    #        if tabA[col-1][row-1]==1:
-    #            check1=check1+1
-    #        if check1==2:
-    #            for i in range(3):
-    #                if tabA[col-1][i]==0 and played==False:
-    #                    tabA[col-1][i]=2
-    #                    played=True
-    #            check1=0
-    #    check1=0
-    ##vertical counter
-    #for row in range(3):
-    #    for col in range(3):
-    #        if tabA[col-1][row-1]==1:
-    #            check1=check1+1
-    #        if check1==2:
-    #            for i in range(3):
-    #                if tabA[i][row-1]==0 and played==False:
-    #                    tabA[i][row-1]=2
-    #                    played=True
-    #            check1=0
-    #    check1=0
-    ##diagonal counter
-    #for a in range(3):
-    #    if tabA[a][a]==1:
-    #        check1=check1+1
-    #    if check1==2:
-    #        for b in range(3):
-    #            if tabA[b][b]==0 and played==False:
-    #                tabA[b][b]=2
-    #                played=True
-    #        check1=0
-    #for a in range(3):
-    #    if tabA[a][2-a]==1:
-    #        check1=check1+1
-    #    if check1==2:
-    #        for b in range(3):
-    #            if tabA[b][2-b]==0 and played==False:
-    #                tabA[b][2-b]=2
-    #                played=True
-    #        check1=0
 
 def ticTacToe(bot=False):
     global tabA
