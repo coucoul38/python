@@ -202,14 +202,38 @@ def minimax(maximizingPlayer):
                         #return(nextTab)
                     result=[[row, col],score]
                     moves.append(result)
+    else:
+        print("Exploring every possible outcome")
+        currentPlayer=2
+        counter=0
+        for row in range(3):
+            for col in range(3):
+                if tabA[row][col]==0:
+                    counter=counter+1
+        for play in range(counter):
+            for row in range(3):
+                for col in range(3):
+                    if tabA[row][col]==0:
+                        nextTab=copy.deepcopy(tabA)
+                        nextTab[row][col]=currentPlayer
+                        #print("Current player : ", currentPlayer)
+                        win=checkForWin(nextTab)
+                        score=0
+                        if win=="tie":
+                            score=0
+                        elif win==maximizingPlayer:
+                            score=1
+                            bestMove=[row, col]
+                            #return(nextTab)
+                        result=[[row, col],score]
+                        moves.append(result)
+            
+            if currentPlayer==2:
+                currentPlayer=1
+            else:
+                currentPlayer=2
 
-    #moves.sort(key=lambda moves: moves[1], reverse=True)
-    print(moves)
-    #bestMove=[[0,0],0]
-    #blockEnemy=[[0,0],0]
-    #for i in range(len(moves)):
-    #    if moves[i][1]<bestMove[1]:
-    #        bestMove=moves[i]
+    #print(moves)
     print("Bestmove : ",bestMove)
     return bestMove
 
