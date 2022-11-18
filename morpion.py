@@ -34,8 +34,6 @@ def displayGrid():
         print("", end='\n')
 
 def checkForWin(list):
-    col=0
-    row=0
     check1=0
     check2=0
     winner = "none"
