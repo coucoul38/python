@@ -29,16 +29,6 @@ class doublyLinkedList:
         n.next = new_node
         new_node.prev = n
     
-    def InsertAfter(self, data, prev):
-        n = self.start_node
-        if self.start_node is None:
-            print("List is empty")
-            return
-        if n is prev:
-            new_node = Node(data)
-            n.next = new_node
-
-    
     #Delete the elements from the start
     def DeleteAtStart(self):
         #Check if list is empty
@@ -115,6 +105,5 @@ amogus=doublyLinkedList()
 amogus.InsertToEmptyList(1)
 amogus.InsertToEnd(2)
 amogus.InsertToEnd(3)
-amogus.InsertAfter(1,2)
 amogus.Display()
 amogus.FindDeepestChildren()
