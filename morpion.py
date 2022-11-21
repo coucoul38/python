@@ -188,6 +188,8 @@ def minimax(isMaximizing):
         return bestScore
 
 def botPlay():
+    print("----------")
+    print("Bot ❌")
     bestScore = 100
     bestMove = [0,0]
     for row in range(3):
@@ -207,7 +209,7 @@ def ticTacToe(bot=False):
     displayGrid()
     while True:
         for i in range(1,3):
-            if bot==True and i==2:
+            if i==2 and bot==True :
                 botPlay()
             else:
                 play(i)
