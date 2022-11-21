@@ -1,9 +1,6 @@
 import math
 import copy
 
-def play(player):
-    input("")
-
 tabA=[]
 pos=[tabA]
 def createGrid():
@@ -156,7 +153,7 @@ def play(player):
         print("Erreur")
         play(player)
 
-def minimax(maximizingPlayer):
+def bestNextMove(maximizingPlayer):
     moves=[]
     bestMove=[-1,-1]
     if maximizingPlayer=="player2":
@@ -237,6 +234,14 @@ def minimax(maximizingPlayer):
     print("Bestmove : ",bestMove)
     return bestMove
 
+def minimax(tab, isMaximizing):
+    if checkForWin == "player1":
+        return 1
+    elif checkForWin == "player2":
+        return -1
+    elif checkForWin == "tie":
+        return 0
+
 def botPlay():
     #win=False
     #possibleCases=0
@@ -255,7 +260,20 @@ def botPlay():
     check1=0
     check2=0
     played=False
-    bestmove=minimax("player1")
+    bestScore= -100
+    for row in range(3):
+        for col in range(3):
+            if tabA[row][col]==0:
+                tabA[row][col]=2
+                score = minimax(tabA, False)
+                tabA[row][col]=0
+                if score > bestScore :
+                    bestScore = score
+                    bestmove = [row, col]
+    tabA[bestmove[0]][bestmove[1]]=2
+    return            
+
+    bestmove=bestNextMove("player1")
     if bestmove[0]!=-1 and bestmove[1]!=-1 and played==False:
         tabA[bestmove[0]][bestmove[1]]=2
         played=True
