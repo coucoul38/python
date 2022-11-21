@@ -189,12 +189,12 @@ def minimax(isMaximizing):
 
 def botPlay():
     bestScore = 100
-    bestMove=[0,0]
+    bestMove = [0,0]
     for row in range(3):
         for col in range(3):
             if tabA[row][col]==0:
                 tabA[row][col]=2
-                score = minimax(False)
+                score = minimax(True)
                 tabA[row][col]=0
                 if score < bestScore:
                     bestScore = score
