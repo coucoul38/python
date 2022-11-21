@@ -1,4 +1,4 @@
-#backup
+#Ancienne version qui prédit uniquement le prochian coup
 import math
 import copy
 
