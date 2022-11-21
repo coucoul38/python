@@ -2,9 +2,6 @@
 import math
 import copy
 
-def play(player):
-    input("")
-
 tabA=[]
 pos=[tabA]
 def createGrid():
