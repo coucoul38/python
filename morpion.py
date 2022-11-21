@@ -237,11 +237,14 @@ def bestNextMove(maximizingPlayer):
 def minimax(tab, isMaximizing):
 
     #si la partie est finie, return le score
-    if checkForWin == "player1":
+    if checkForWin(tab) == "player1":
+        #print("Found a scenario where player wins")
         return 1
-    elif checkForWin == "player2":
+    elif checkForWin(tab) == "player2":
+        #print("Found a scenario where bot wins")
         return -1
-    elif checkForWin == "tie":
+    elif checkForWin(tab) == "tie":
+        #print("Found a tie scenario")
         return 0
 
     #sinon :
@@ -258,7 +261,7 @@ def minimax(tab, isMaximizing):
                         bestScore = score
         return bestScore
     #sinon c'est le bot qui essaie de minimiser le score
-    else :
+    elif not isMaximizing:
         bestScore = 100
         for row in range(3):
             for col in range(3):
@@ -269,24 +272,24 @@ def minimax(tab, isMaximizing):
                     if score < bestScore :
                         bestScore = score
         return bestScore
+    else :
+        print("Error in minimax(): did not specify if player is minimizing")
 
 def botPlay():
     #le bot tente de minimiser le score, il commence donc avec un score haut
-    bestScore = 100
-    bestmove=[-1,-1]
-
-    #pour chaque case libre :
+    bestScore=100
     for row in range(3):
         for col in range(3):
             if tabA[row][col]==0:
-                #le bot joue cette case
                 tabA[row][col]=2
                 score = minimax(tabA, False)
                 tabA[row][col]=0
-                if score < bestScore :
-                    bestScore = score
-                    bestmove = [row, col]
-    tabA[bestmove[0]][bestmove[1]]=2
+                if score < bestScore:
+                    bestScore=score
+                    bestMove=[row, col]
+    tabA[bestMove[0]][bestMove[1]]=2
+    print("Best move: ",bestMove)
+    print("Best score: ",bestScore)
     return
 
 def ticTacToe(bot=False):
@@ -295,10 +298,10 @@ def ticTacToe(bot=False):
     displayGrid()
     while True:
         for i in range(1,3):
-            if bot==True and i==2:
+            if bot==True and i==1:
                 botPlay()
             else:
-                play(i)
+                play(1)
 
             displayGrid()
             if checkForWin(tabA)=="player1":
