@@ -230,8 +230,3 @@ def ticTacToe(bot=False):
 
 createGrid()
 ticTacToe(True)
-
-
-#Algo bot
-#Si le joueur aligne 2 points, le bloquer
-#Sinon essayer de cap 3 coins : victoire lol
