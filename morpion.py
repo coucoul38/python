@@ -242,6 +242,30 @@ def minimax(tab, isMaximizing):
     elif checkForWin == "tie":
         return 0
 
+    bestMove=[-1,-1]
+    if isMaximizing :
+        bestScore = -100
+        for row in range(3):
+            for col in range(3):
+                if tabA[row][col]==0:    
+                    tabA[row][col]=1
+                    score = minimax(tabA, False)
+                    tabA[row][col]=0
+                    if score > bestScore :
+                        bestScore = score
+        return bestScore
+    else :
+        bestScore = 100
+        for row in range(3):
+            for col in range(3):
+                if tabA[row][col]==0:    
+                    tabA[row][col]=2
+                    score = minimax(tabA, True)
+                    tabA[row][col]=0
+                    if score < bestScore :
+                        bestScore = score
+        return bestScore
+
 def botPlay():
     #win=False
     #possibleCases=0
@@ -260,18 +284,20 @@ def botPlay():
     check1=0
     check2=0
     played=False
-    bestScore= -100
+    
+    bestScore= 100
+    bestmove=[-1,-1]
     for row in range(3):
         for col in range(3):
             if tabA[row][col]==0:
                 tabA[row][col]=2
                 score = minimax(tabA, False)
                 tabA[row][col]=0
-                if score > bestScore :
+                if score < bestScore :
                     bestScore = score
                     bestmove = [row, col]
     tabA[bestmove[0]][bestmove[1]]=2
-    return            
+    return    
 
     bestmove=bestNextMove("player1")
     if bestmove[0]!=-1 and bestmove[1]!=-1 and played==False:
@@ -290,7 +316,6 @@ def ticTacToe(bot=False):
     displayGrid()
     while True:
         for i in range(1,3):
-            minimax("player1")
             if bot==True and i==2:
                 botPlay()
             else:
