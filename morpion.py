@@ -235,6 +235,8 @@ def bestNextMove(maximizingPlayer):
     return bestMove
 
 def minimax(tab, isMaximizing):
+
+    #si la partie est finie, return le score
     if checkForWin == "player1":
         return 1
     elif checkForWin == "player2":
@@ -242,54 +244,42 @@ def minimax(tab, isMaximizing):
     elif checkForWin == "tie":
         return 0
 
-    bestMove=[-1,-1]
+    #sinon :
+    #si c'est le tour du joueur :
     if isMaximizing :
         bestScore = -100
         for row in range(3):
             for col in range(3):
-                if tabA[row][col]==0:    
-                    tabA[row][col]=1
-                    score = minimax(tabA, False)
-                    tabA[row][col]=0
+                if tab[row][col]==0:    
+                    tab[row][col]=1
+                    score = minimax(tab, False)
+                    tab[row][col]=0
                     if score > bestScore :
                         bestScore = score
         return bestScore
+    #sinon c'est le bot qui essaie de minimiser le score
     else :
         bestScore = 100
         for row in range(3):
             for col in range(3):
-                if tabA[row][col]==0:    
-                    tabA[row][col]=2
-                    score = minimax(tabA, True)
-                    tabA[row][col]=0
+                if tab[row][col]==0:    
+                    tab[row][col]=2
+                    score = minimax(tab, True)
+                    tab[row][col]=0
                     if score < bestScore :
                         bestScore = score
         return bestScore
 
 def botPlay():
-    #win=False
-    #possibleCases=0
-    ##while win==False:
-    #for i in range(3):
-    #    for o in range(3):
-    #        if tabA[i][o]==0:
-    #            possibleCases=possibleCases+1
-    #for case in range(possibleCases):
-    #    allCases=[]
-    #    for i in range():
-    #        for o in range(3):
-    #        if tabA[i][o]==0:
-    #print(possibleCases)
-
-    check1=0
-    check2=0
-    played=False
-    
-    bestScore= 100
+    #le bot tente de minimiser le score, il commence donc avec un score haut
+    bestScore = 100
     bestmove=[-1,-1]
+
+    #pour chaque case libre :
     for row in range(3):
         for col in range(3):
             if tabA[row][col]==0:
+                #le bot joue cette case
                 tabA[row][col]=2
                 score = minimax(tabA, False)
                 tabA[row][col]=0
@@ -297,18 +287,7 @@ def botPlay():
                     bestScore = score
                     bestmove = [row, col]
     tabA[bestmove[0]][bestmove[1]]=2
-    return    
-
-    bestmove=bestNextMove("player1")
-    if bestmove[0]!=-1 and bestmove[1]!=-1 and played==False:
-        tabA[bestmove[0]][bestmove[1]]=2
-        played=True
-    elif played==False :
-        for i in range(3):
-            for o in range(3):
-                if tabA[i][o]==0 and played==False:
-                    tabA[i][o]=2
-                    played=True
+    return
 
 def ticTacToe(bot=False):
     global tabA
