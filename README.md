@@ -6,8 +6,8 @@ Ne copiez pas bêtement mon code si vous ne comprenez pas, c'est la meilleure fa
 ## gameOfLife.py 
 > Le jeu de la vie de Conway, en python
 
-## ticTacToe.py
-> Jeu du morpion avec 2 joueurs
+## morpion.py
+> Jeu du morpion à 2 joueurs, ou contre un bot imbatable
 
 ## pierreFeuilleCiseaux.py
 > Pseudo-code du jeu pierre feuille ciseaux (avec un bot)
@@ -17,3 +17,6 @@ Ne copiez pas bêtement mon code si vous ne comprenez pas, c'est la meilleure fa
 
 ## fonctionsEtExos.py
 >Le cours d'Alexandre, avec les exercices, c'est un peu mal rangé 👉👈
+
+## doublyLinkedListTest
+>algorythme permettant de créer et gérer des listes doublement liées 
