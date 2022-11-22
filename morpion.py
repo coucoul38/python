@@ -1,7 +1,3 @@
-#backup
-import math
-import copy
-
 tabA=[]
 pos=[tabA]
 def createGrid():

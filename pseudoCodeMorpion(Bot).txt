@@ -1,0 +1,94 @@
+Fonction createGrid():    
+    On crée la grille du morpion :
+        On crée trois lignes :
+            On initialise chaque case à 0
+
+Fonction displayGrid():
+    Pour chaque ligne de la grille :
+        Pour chaque colone : 
+            si l'élément est 0 :
+                print un carré blanc
+            sinon c'est c'est 1 :
+                print ⭕️
+            sinon si c'est 2 :
+                print ❌
+
+Fonction play(joueur):
+    récupérer l'entrée du joueur grace à input
+    si l'input n'est pas valable, le dire et rappeller play(joueur)
+    remplir la case correspondante avec le numéro de joueur
+
+Fonction checkForWin():
+    si trois pions du même joueur sont alignés:
+        retourner le numéro du joueur
+    sinon, si la grille est remplie et que personne n'as gagné :
+        retourner "égalité"
+    sinon :
+        retourner "none"
+
+Fonction minimax(le joueur essaie-t-il de maximiser son score ?):
+    si le joueur humain gagne :
+        renvoyer 1
+    sinon si le bot gagne :
+        renvoyer 2
+    sinon si egalité :
+        renvoyer 0
+    
+    si le joueur maximise :
+        meilleurScore = -100
+        Pour chaque case de la grille :
+        Si la case est vied :
+            le bot joue dans cette case
+            score = minimax(False)
+            on remet la case à 0
+            Si score > meilleurScore :
+                meilleurScore = score
+        renvoyer meilleurScore
+    sinon si le joueur minimise :
+        meilleurScore = 100
+        Pour chaque case de la grille :
+        Si la case est vied :
+            le bot joue dans cette case
+            score = minimax(True)
+            on remet la case à 0
+            Si score < meilleurScore :
+                meilleurScore = score
+        renvoyer meilleurScore
+
+Fonction botPlay():
+    print("Le bot joue")
+    meilleurScore = 100
+    meilleurMove = case 0,0
+    Pour chaque case de la grille :
+        Si la case est vied :
+            le bot joue dans cette case
+            score = minimax(True)
+            on remet la case à 0
+            Si score < meilleurScore :
+                meilleurScore = score
+                on enregistre la case dans meilleurMove
+    Jouer dans la case enregistrée dans meilleurMove
+
+Fonction ticTacToe(bot ou pas ?):   
+    boucle infinie:
+        displayGrid()
+        pour chaque joueur entre 1 et 2:
+            si bot et joueur == 2 :
+                botPlay()
+            sinon :
+                play(joueur)
+            displayGrid()
+            recupérer le gagnant grace à checkForWin()
+            si le joueur1 gagne :
+                print "le joueur 1 à gagné"
+                fin de la Fonction
+            si le joueur2 gagne :
+                print "le joueur 2 à gagné"
+                fin de la Fonction
+            si egalité :
+                print "Egalité"
+                fin de la Fonction
+
+Pour lancer la partie, on appelle ces fonctions :
+createGrid()
+ticTacToe(True)
