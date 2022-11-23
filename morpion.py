@@ -1,5 +1,4 @@
 tabA=[]
-pos=[tabA]
 def createGrid():
     global tabA
     #on crée x colonnes
