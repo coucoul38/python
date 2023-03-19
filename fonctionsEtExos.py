@@ -61,15 +61,15 @@ tableau = [0, 10, 15, 5, 14, 7, 102]
 #print(tableau[2])
 len(tableau) #nombre éléments du tableau
 
-prenom = "Alexandre"
-nom = "Delaistre"
+prenom = "Joe"
+nom = "M"
 
-nomPrenom = nom + prenom #renvoie DelaistreAlexandre
-nomPrenom2 = nom + " " + prenom #renvoie Delaistre Alexandre
+nomPrenom = nom + prenom #renvoie DJoe
+nomPrenom2 = nom + " " + prenom #renvoie D Joe
 intValue = 342
 strIntValue = str(342) #renvoie 342 sous forme de string
 
-tableauMultiType = ["Alexandre", True, tableau, 4 > 2, None]
+tableauMultiType = ["Joe", True, tableau, 4 > 2, None]
 tableauDim = [0,1,2,3]
 tableauDim2 = [0,1,21,3]
 tableauMultiDim = [tableauDim, tableauDim2]
@@ -122,7 +122,7 @@ def afficher(msg):
 #Exercice 4
 #Fonction login(username, password, listUser) pour afficher un message de connexion si le combo est bon
 listeUtilisateur = {
-    "Alexandre" :"motdepasse",
+    "Joe" :"motdepasse",
     "Michel" : "amogus",
     "Toto" : "1234"
 }
