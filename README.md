@@ -12,8 +12,5 @@
 ## fibonacci.py
 >Une fonction python qui permet de print la suite de fibonnaci, en précisant le 2eme élément de la suite et la longueur de celle-cI
 
-## fonctionsEtExos.py
->Le cours d'Alexandre, avec les exercices, c'est un peu mal rangé 👉👈
-
 ## doublyLinkedListTest
 >algorythme permettant de créer et gérer des listes doublement liées 
