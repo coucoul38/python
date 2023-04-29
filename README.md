@@ -4,7 +4,7 @@
 > Le jeu de la vie de Conway, en python
 
 ## morpion.py
-> Jeu du morpion à 2 joueurs, ou contre un bot imbatable
+> Jeu du morpion à 2 joueurs, ou contre un bot imbatable (grace à la fonction minimax, le bot choisis analyse tous ses choix possibles)
 
 ## pierreFeuilleCiseaux.py
 > Pseudo-code du jeu pierre feuille ciseaux (avec un bot)
